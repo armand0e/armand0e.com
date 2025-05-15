@@ -27,7 +27,7 @@ export function ParticlesBackground() {
   }, []);
 
   const particleOptions = {
-    fpsLimit: 60,
+    fpsLimit: 120,
     interactivity: {
       events: {
         onClick: {
@@ -45,13 +45,13 @@ export function ParticlesBackground() {
           quantity: 4,
         },
         repulse: {
-          distance: 100,
+          distance: 150,
           duration: 0.4,
         },
         trail: {
           delay: 0.005,
           pauseOnStop: false,
-          quantity: 1,
+          quantity: 2,
           particles: {
             color: {
               value: "#A8E6F0"
@@ -92,7 +92,7 @@ export function ParticlesBackground() {
           enable: true,
           area: 800,
         },
-        value: 35,
+        value: 60,
       },
       opacity: {
         value: 0.3, // Reduced opacity
@@ -103,12 +103,12 @@ export function ParticlesBackground() {
       size: {
         value: { min: 1, max: 3 }, // Smaller particles
       },
-      life: {
+      life: { // Added particle lifetime back
         duration: {
           sync: false,
-          value: 3,
+          value: 7, // Particles last for 7 seconds
         },
-        count: 1,
+        count: 1, // Particles disappear after their lifetime and don't respawn on their own
       },
     },
     detectRetina: true,
