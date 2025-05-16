@@ -37,11 +37,6 @@
     /* New accent colors */
     --accent-cyan: 190 70% 75%;
     --accent-purple: 270 50% 80%;
-
-    /* For animated gradient background */
-    --gradient-bg-1: 222 84% 5%;
-    --gradient-bg-2: 230 60% 8%;
-    --gradient-bg-3: 240 40% 6%;
   }
 
   /* Ensure dark class is applied if that's the default, 
@@ -81,11 +76,6 @@
     /* New accent colors */
     --accent-cyan: 190 70% 75%;
     --accent-purple: 270 50% 80%;
-
-    /* For animated gradient background */
-    --gradient-bg-1: 222 84% 5%;
-    --gradient-bg-2: 230 60% 8%;
-    --gradient-bg-3: 240 40% 6%;
   }
 }
 
@@ -95,22 +85,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Animated gradient background */
-    background: linear-gradient(-45deg, hsl(var(--gradient-bg-1)), hsl(var(--gradient-bg-2)), hsl(var(--gradient-bg-3)), hsl(var(--gradient-bg-1)));
-    background-size: 400% 400%;
-    animation: gradientBG 30s ease infinite;
-  }
-}
-
-/* Keyframes for the gradient animation */
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 } 

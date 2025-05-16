@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import type { Container } from "@tsparticles/engine";
+import type { Container, ISourceOptions } from "@tsparticles/engine";
 // import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
 export function ParticlesBackground() {
@@ -26,7 +26,7 @@ export function ParticlesBackground() {
     // console.log(container); // You can uncomment this to see the container object
   }, []);
 
-  const particleOptions = {
+  const particleOptions: ISourceOptions = {
     fpsLimit: 120,
     interactivity: {
       events: {
@@ -38,7 +38,7 @@ export function ParticlesBackground() {
           enable: true,
           mode: ["repulse", "trail"],
         },
-        resize: true,
+        resize: { enable: true },
       },
       modes: {
         push: {
@@ -90,9 +90,9 @@ export function ParticlesBackground() {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800, // Changed from area to value_area
         },
-        value: 60,
+        value: 60, // Reduced number of particles
       },
       opacity: {
         value: 0.3, // Reduced opacity
@@ -102,13 +102,6 @@ export function ParticlesBackground() {
       },
       size: {
         value: { min: 1, max: 3 }, // Smaller particles
-      },
-      life: { // Added particle lifetime back
-        duration: {
-          sync: false,
-          value: 7, // Particles last for 7 seconds
-        },
-        count: 1, // Particles disappear after their lifetime and don't respawn on their own
       },
     },
     detectRetina: true,
@@ -128,7 +121,7 @@ export function ParticlesBackground() {
       <Particles
         id="tsparticles"
         particlesLoaded={particlesLoaded}
-        options={particleOptions as any} // Cast to any to avoid deep type issues for now
+        options={particleOptions} // Cast to any to avoid deep type issues for now
         style={{
             position: 'absolute',
             top: 0,
