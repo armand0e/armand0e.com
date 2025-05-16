@@ -90,7 +90,6 @@ export function ParticlesBackground() {
       number: {
         density: {
           enable: true,
-          value_area: 800, // Changed from area to value_area
         },
         value: 60, // Reduced number of particles
       },
