@@ -17,8 +17,8 @@ export default function Home() {
         <HeroSection />
         <div id="about"><AboutSection /></div>
         <div id="skills"><SkillsSection /></div>
-        <div id="experience"><ExperienceSection /></div>
         <div id="projects"><ProjectsSection /></div>
+        <div id="experience"><ExperienceSection /></div>
         <div id="education"><EducationSection /></div>
         <div id="contact"><ContactSection /></div>
         {/* Placeholder for other sections */}

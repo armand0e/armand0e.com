@@ -8,7 +8,7 @@ import Link from "next/link";
 const contactInfo = {
   email: "ARAN.Rafiee@gmail.com",
   github: "https://github.com/armand0e",
-  linkedin: "#", // Placeholder
+  linkedin: "https://www.linkedin.com/in/arman-rafiee-0601ba235/",
 };
 
 export function ContactSection() {
@@ -65,7 +65,7 @@ export function ContactSection() {
               </Link>
             </motion.div>
             <motion.div custom={1} initial="hidden" whileInView="visible" variants={iconVariants} viewport={{ once: true }}>
-              <Link href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn (Coming Soon)">
+              <Link href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn">
                 <Button variant="ghost" size="icon" aria-label="LinkedIn">
                   <Linkedin className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
                 </Button>

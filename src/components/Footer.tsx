@@ -11,9 +11,9 @@ const socialLinks = [
     label: "GitHub",
   },
   {
-    href: "#", // Placeholder for LinkedIn
+    href: "https://www.linkedin.com/in/arman-rafiee-0601ba235/",
     icon: Linkedin,
-    label: "LinkedIn (Coming Soon)",
+    label: "LinkedIn",
   },
   {
     href: "mailto:ARAN.Rafiee@gmail.com",
