@@ -7,6 +7,7 @@ const SkillsSection = dynamic(() => import('@/components/SkillsSection').then(mo
 const ExperienceSection = dynamic(() => import('@/components/ExperienceSection').then(mod => mod.ExperienceSection));
 const ProjectsSection = dynamic(() => import('@/components/ProjectsSection').then(mod => mod.ProjectsSection));
 const EducationSection = dynamic(() => import('@/components/EducationSection').then(mod => mod.EducationSection));
+const CertificatesSection = dynamic(() => import('@/components/CertificatesSection').then(mod => mod.CertificatesSection));
 const ContactSection = dynamic(() => import('@/components/ContactSection').then(mod => mod.ContactSection));
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <div id="experience"><ExperienceSection /></div>
         <div id="projects"><ProjectsSection /></div>
         <div id="education"><EducationSection /></div>
+        <div id="certificates"><CertificatesSection /></div>
         <div id="contact"><ContactSection /></div>
         {/* Placeholder for other sections */}
         {/* <div className="container mx-auto p-4 my-12">

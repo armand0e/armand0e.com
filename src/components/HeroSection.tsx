@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
@@ -32,6 +33,14 @@ export function HeroSection() {
   return (
     <section id="home" ref={targetRef} className="relative flex h-screen flex-col items-center justify-center text-center overflow-hidden">
       <ParticlesBackground />
+      <Image
+        src="https://via.placeholder.com/200"
+        alt="Arman Rafiee - Profile Photo"
+        width={200}
+        height={200}
+        className="rounded-full mx-auto mb-4 z-10"
+        priority // Good to add for LCP elements
+      />
       <motion.div
         style={{ y: titleY, opacity: titleOpacity }}
         className="z-10 p-4"
