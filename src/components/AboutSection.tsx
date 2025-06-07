@@ -7,7 +7,7 @@ export function AboutSection() {
   const seeking = "I am currently seeking internship opportunities to expand my skills and prepare for a successful career in technology. As a quick learner and a dedicated worker, I'm committed to making valuable contributions and eager to grow in a collaborative environment.";
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-secondary/30">
+    <section id="about" className="py-16 md:py-24">
       <div className="container mx-auto max-w-3xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

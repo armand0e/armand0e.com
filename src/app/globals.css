@@ -90,4 +90,8 @@
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For Internet Explorer/Edge */
   }
+}
+
+.section-bg:nth-child(even) {
+  @apply bg-secondary/30;
 } 

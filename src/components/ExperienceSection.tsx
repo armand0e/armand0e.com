@@ -71,7 +71,7 @@ const itemVariants = {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-16 md:py-24 bg-secondary/30">
+    <section id="experience" className="py-16 md:py-24">
       <div className="container mx-auto max-w-4xl px-4">
         <motion.div // This is the overall section animation
           initial={{ opacity: 0, y: 20 }}
