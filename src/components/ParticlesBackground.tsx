@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import type { Container, ISourceOptions } from "@tsparticles/engine";
-// import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
 export function ParticlesBackground() {
   const [init, setInit] = useState(false);
@@ -15,8 +15,8 @@ export function ParticlesBackground() {
       // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
       // this loads the tsparticles package bundle, it's a big bundle
       // prefer preparing a custom bundle using AOT builds for production
-      await loadFull(engine);
-      // await loadSlim(engine); // if using the slim bundle
+      // await loadFull(engine);
+      await loadSlim(engine); // if using the slim bundle
     }).then(() => {
       setInit(true);
     });

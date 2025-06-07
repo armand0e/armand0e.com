@@ -1,26 +1,48 @@
 {
     "configurations": [
         {
+            "name": "install/build/start",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "npm install; npm run build; chrome.exe --remote-debugging-port=9222 http://localhost:7626; npm run start",
+            "cwd": "${workspaceFolder}",
+        },
+
+        {
+            "type": "chrome",
+            "name": "Launch Chrome against localhost",
+            "request": "launch",
+            "url": "http://localhost:7626", // Provide your project's url to finish configuring
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "presentation": {
+                "hidden": false
+            }
+        },
+        {
+            "type": "chrome",
+            "name": "Open Chrome DevTools",
+            "request": "attach",
+            "url": "http://localhost:7626", // Provide your project's url to finish configuring
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222"
+            ],
+            "presentation": {
+                "hidden": true
+            }
+        },
+
+        {
             "type": "pwa-msedge",
             "name": "Launch Microsoft Edge",
             "request": "launch",
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ],
-            "url": "c:\\Users\\aranr\\.cursor\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.8\\out\\startpage\\index.html", // Provide your project's url to finish configuring
-            "presentation": {
-                "hidden": true
-            }
-        },
-        {
-            "type": "pwa-msedge",
-            "name": "Launch Microsoft Edge in headless mode",
-            "request": "launch",
-            "runtimeArgs": [
-                "--headless",
-                "--remote-debugging-port=9222"
-            ],
-            "url": "c:\\Users\\aranr\\.cursor\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.8\\out\\startpage\\index.html", // Provide your project's url to finish configuring
+            "url": "http://localhost:7626", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
@@ -29,7 +51,25 @@
             "type": "vscode-edge-devtools.debug",
             "name": "Open Edge DevTools",
             "request": "attach",
-            "url": "c:\\Users\\aranr\\.cursor\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.8\\out\\startpage\\index.html", // Provide your project's url to finish configuring
+            "url": "http://localhost:7626", // Provide your project's url to finish configuring
+            "presentation": {
+                "hidden": true
+            }
+        },
+        {
+            "type": "node",
+            "name": "Launch Node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--inspect-brk=9229"
+            ],
+            "program": "${workspaceFolder}/node_modules/.bin/webpack-dev-server",
+            "args": [
+                "--config",
+                "${workspaceFolder}/webpack.config.js"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
             "presentation": {
                 "hidden": true
             }
@@ -37,18 +77,13 @@
     ],
     "compounds": [
         {
-            "name": "Launch Edge Headless and attach DevTools",
+            "name": "Launch Node and Chrome + DevTools",
             "configurations": [
-                "Launch Microsoft Edge in headless mode",
-                "Open Edge DevTools"
+                "Launch Node",
+                "Launch Chrome against localhost",
+                "Open Chrome DevTools"
             ]
         },
-        {
-            "name": "Launch Edge and attach DevTools",
-            "configurations": [
-                "Launch Microsoft Edge",
-                "Open Edge DevTools"
-            ]
-        }
+
     ]
 }

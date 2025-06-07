@@ -19,13 +19,13 @@ export function Navbar() {
   const pathname = usePathname();
   const lenisContext = useLenis();
 
-  const handleScrollTo = (targetId: string) => {
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
     if (lenisContext?.lenis) {
-      const cleanId = targetId.startsWith("/#") ? targetId.substring(2) : targetId;
+      const cleanId = targetId.startsWith('/#') ? targetId.substring(2) : targetId;
       const targetElement = document.getElementById(cleanId);
       if (targetElement) {
-        lenisContext.lenis.scrollTo(targetElement, {
-        });
+        lenisContext.lenis.scrollTo(targetElement);
       } else {
         console.warn(`Target element with ID '${cleanId}' not found for scrolling.`);
       }
@@ -40,10 +40,7 @@ export function Navbar() {
         <Link 
           href="/#home" 
           className="text-2xl font-bold text-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            handleScrollTo("/#home");
-          }}
+          onClick={(e) => handleScrollTo(e, "/#home")}
         >
           AR
         </Link>
@@ -52,10 +49,7 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollTo(item.href);
-              }}
+              onClick={(e) => handleScrollTo(e, item.href)}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
                 pathname === "/" && item.href === "/#home" 

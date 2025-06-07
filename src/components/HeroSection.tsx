@@ -5,8 +5,12 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useRef } from "react";
-import { ParticlesBackground } from "./ParticlesBackground";
+import dynamic from "next/dynamic";
 import { useLenis } from "@/components/SmoothScrollProvider";
+
+const ParticlesBackground = dynamic(() => import('./ParticlesBackground').then(mod => mod.ParticlesBackground), {
+  ssr: false,
+});
 
 export function HeroSection() {
   const targetRef = useRef<HTMLDivElement>(null);
